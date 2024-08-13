@@ -2628,3 +2628,63 @@ body.background-white .tf-mouse-inner {
 body.background-white .tf-mouse-outer {
     border-color: rgba(22, 22, 22, 1);
 }
+
+/* .slick-prev {
+    left: 3% !important;
+    z-index: 1;
+}
+
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+} */
+
+.collection-slider {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.collection-slider .slider-item {
+    width: auto;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+    padding: 1rem 0;
+}
+
+.collection-slider .slider-item p {
+    text-transform: uppercase;
+    margin: 0 2rem;
+    transition: all 0.5s ease;
+
+}
+
+.collection-slider .slider-item img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* 
+.collection-slider .slider-item:hover {
+    background-color: #2e2e2e;
+}
+
+.collection-slider .slider-item:hover>p {
+    color: white;
+} */
+
+.collection-slider .selected-slider {
+    background-color: white;
+}
+
+.collection-slider .selected-slider p {
+    color: #000;
+
+    font-family: CPMono_v07_Bold;
+}
