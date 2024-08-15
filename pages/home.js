@@ -12,9 +12,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Home() {
 
-    const [selected, setSelected] = React.useState(false);
+export default function Home() {
 
     const [sliderItems, setSliderItems] = React.useState([
         {
@@ -27,7 +26,7 @@ export default function Home() {
             id: 1,
             img: "assets/images/collection-icons/country.png",
             text: "country",
-            selected: false
+            selected: true
         },
         {
             id: 2,
@@ -55,6 +54,8 @@ export default function Home() {
         }
     ]);
 
+    const [selected, setSelected] = React.useState(sliderItems[1]);
+
     const selectionFunctions = (id) => {
         let items = [...sliderItems]
 
@@ -80,36 +81,58 @@ export default function Home() {
                 <div className="collection-slider">
                     <Slider {...settings}>
                         {
-                            sliderItems.map(item => <div key={item.id} onClick={() => selectionFunctions(item.id)} className={item.selected ? "slider-item selected-slider" : "slider-item"}>
+                            sliderItems.map(item => <div key={item.id} onClick={() => {
+                                setSelected(item)
+                                selectionFunctions(item.id)
+                            }} className={item.selected ? "slider-item selected-slider" : "slider-item"}>
                                 <img src={item.img} />
                                 <p>{item.text}</p>
                             </div>)
                         }
-                        {/* <div className="slider-item">
-                            <img src="assets/images/collection-icons/battlewear.png" />
-                            <p>battlewear</p>
-                        </div>
-                        <div className="slider-item">
-                            <img src="assets/images/collection-icons/country.png" />
-                            <p>country</p>
-                        </div>
-                        <div className="slider-item">
-                            <img src="assets/images/collection-icons/old.png" />
-                            <p>GOLDHEADS</p>
-                        </div>
-                        <div className="slider-item">
-                            <img src="assets/images/collection-icons/women.png" />
-                            <p>WOMEN</p>
-                        </div>
-                        <div className="slider-item">
-                            <img src="assets/images/collection-icons/battlewear.png" />
-                            <p>battlewear</p>
-                        </div>
-                        <div className="slider-item">
-                            <img src="assets/images/collection-icons/country.png" />
-                            <p>country</p>
-                        </div> */}
                     </Slider>
+                    <div className="collection-cover">
+                        <div className="row">
+                            <div className="nftdetails">
+                                <img className="collection-avatar" src={selected.img} alt="battlewear_tokens" />
+                                <div class="details">
+                                    <p className="collection-name">{selected.text}</p>
+                                    <div className="collection"><img src="assets/images/collectioni-icon.png" alt="collection-icons" /><p>SOLDIER COLLECTION</p></div>
+                                </div>
+                            </div>
+                            <div className="nft-rates">
+                                <div>
+                                    <p className="price">2.00</p>
+                                    <p className="action-text">BUY NOW</p>
+                                </div>
+                                <div>
+                                    <p className="price">1.50</p>
+                                    <p className="action-text">SELL NOW</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div>
+                                <p className="value">350/4,418 (7.83%)</p>
+                                <p className="label">LISTED/SUPPLY</p>
+                            </div>
+                            <div>
+                                <p className="value">32</p>
+                                <p className="label">VOLUME (24H)</p>
+                            </div>
+                            <div>
+                                <p className="value">163,942</p>
+                                <p className="label">VOLUME (ALL)</p>
+                            </div>
+                            <div>
+                                <p className="value">6</p>
+                                <p className="label">SALES (24H)</p>
+                            </div>
+                            <div>
+                                <p className="value">-19.25%</p>
+                                <p className="label">PRICE Δ (24H)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {/* <FlatTitle2 />
                 <Seller2 />
