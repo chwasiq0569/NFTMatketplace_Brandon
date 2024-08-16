@@ -11,9 +11,20 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
+import Countdown from "@/components/elements/Countdown";
+import MultiRangeSlider from "../components/elements/CustomComponents/CustomRangeController/MultiRangeSlider"
 
+const currentTime = new Date()
 
 export default function Home() {
+    const [isBidModal, setBidModal] = React.useState(false)
+
+    const [allNft, setAllNft] = React.useState(false)
+    const [forSale, setForSale] = React.useState(false)
+    const [favourites, setFavourites] = React.useState(false)
+
+    const handleBidModal = () => setBidModal(!isBidModal)
 
     const [sliderItems, setSliderItems] = React.useState([
         {
@@ -130,6 +141,574 @@ export default function Home() {
                             <div>
                                 <p className="value">-19.25%</p>
                                 <p className="label">PRICE Δ (24H)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div className="collection">
+                    <div className="filters">
+
+                    </div>
+                    <div className="collection-images">
+
+                    </div>
+                </div> */}
+
+                <div className="tf-section-5 artwork loadmore-12-item-1 fluid-content">
+                    <div className="row">
+                        <div className="col-md-3">
+                            <p>FILTERS</p>
+                            <div className="widget-category-checkbox style-1 mb-30">
+                                {/* <h5 className="active">Status</h5> */}
+                                {/* <input type="number" id="tentacles" name="tentacles" min="0" max="100" step={0.1} /> */}
+
+                                <div className="content-wg-category-checkbox">
+                                    <div onClick={() => setAllNft(!allNft)} className={allNft ? "selection selected" : "selection"}>
+                                        <img src="assets/icon/allnfts.png" alt='allnfts' />
+                                        <p>ALL NFTS</p>
+                                    </div>
+                                    <div onClick={() => setForSale(!forSale)} className={forSale ? "selection selected" : "selection"}>
+                                        <img src="assets/icon/forsale.png" alt='allnfts' />
+                                        <p>FOR SALE</p>
+                                    </div>
+                                    <div onClick={() => setFavourites(!favourites)} className={favourites ? "selection selected" : "selection"}>
+                                        <img src="assets/icon/favourites.png" alt='allnfts' />
+                                        <p>FAVOURITES</p>
+                                    </div>
+                                </div>
+                                {/* <div class="sliders_control">
+                                        <input id="fromSlider" type="range" value="10" min="0" max="100" />
+                                        <input id="toSlider" type="range" value="40" min="0" max="100" />
+                                    </div> */}
+                                <br />
+                                <br />
+
+                                <p className="secondary-head">PRICE</p>
+                                <MultiRangeSlider />
+                                <br />
+
+                                <p className="secondary-head">RARITY</p>
+                                <MultiRangeSlider />
+
+                                <div className="rarity-tags">
+                                    <span className="tag-BA8AFF">LEGENDARY (5%)</span>
+                                    <span className="tag-FF8AAD">RARE (25%)</span>
+                                    <span className="tag-8EE3FB">UNCOMMON (50%)</span>
+                                    <span className="tag-BFC4CA">COMMON (100%)</span>
+                                </div>
+                            </div>
+                            <div className="widget-category-checkbox style-1 mb-30">
+                                <h5 className="active">Collection</h5>
+                                <div className="content-wg-category-checkbox">
+                                    <form action="#">
+                                        <label>Digital Art
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Gaming
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Gaming
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Music
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Photography
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Typo
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Crypto
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                    </form>
+                                </div>
+                            </div>
+                            <div className="widget-category-checkbox style-1 mb-30">
+                                <h5 className="active">Filter by price</h5>
+                                <div className="content-wg-category-checkbox">
+                                    <form action="#">
+                                        <label>$0 - $100
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>$100 - $200
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>$200 - $300
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>$300 - $400
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>$400 - $500
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>$500 - $600
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Over $600
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                    </form>
+                                </div>
+                            </div>
+                            <div className="widget-category-checkbox style-1 mb-30">
+                                <h5 className="active">Chains</h5>
+                                <div className="content-wg-category-checkbox">
+                                    <form action="#">
+                                        <label>Bitcoin
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Ethereum
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Cardano
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Solana
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label>Litecoin
+                                            <input type="checkbox" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                    </form>
+                                </div>
+                            </div>
+                            <div className="widget-category-checkbox style-1">
+                                <h5 className="active">Ratings</h5>
+                                <div className="content-wg-category-checkbox">
+                                    <form action="#">
+                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" />
+                                            <input type="radio" name="rating" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /> &amp; Up
+                                            <input type="radio" name="rating" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
+                                            <input type="radio" name="rating" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
+                                            <input type="radio" name="rating" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                        <label><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
+                                            <input type="radio" name="rating" />
+                                            <span className="btn-checkbox" />
+                                        </label><br />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-9">
+                            <div className="row">
+                                <div data-wow-delay="0s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-01.png" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/1.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.1s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/2.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.2s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/3.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/3.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.1s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/2.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.2s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/1.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/1.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.1s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/2.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.2s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/collection/3.png" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/3.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/1.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.1s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/2.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-wow-delay="0.2s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                                    <div className="tf-card-box style-4">
+                                        <div className="author flex items-center">
+                                            <div className="avatar">
+                                                <img src="assets/images/avatar/avatar-box-02.jpg" alt="Image" />
+                                            </div>
+                                            <div className="info">
+                                                <span>Created by:</span>
+                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-media">
+                                            <Link href="#">
+                                                <img src="assets/images/collection/3.png" alt="" />
+                                            </Link>
+                                            <span className="wishlist-button icon-heart" />
+                                            <div className="featured-countdown">
+                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                            </div>
+                                        </div>
+                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
+                                        <div className="meta-info flex items-center justify-between">
+                                            <div>
+                                                <span className="text-bid">Current Bid</span>
+                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                            </div>
+                                            <div className="button-place-bid">
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

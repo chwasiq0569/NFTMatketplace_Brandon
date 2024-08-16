@@ -2639,6 +2639,10 @@ body.background-white .tf-mouse-outer {
     z-index: 1;
 } */
 
+.fluid-content {
+    padding: 0 4rem;
+}
+
 .collection-slider {
     width: 65%;
     margin: 0 auto;
@@ -2757,4 +2761,111 @@ body.background-white .tf-mouse-outer {
 
     font-size: 16px;
     color: #CCB800;
+}
+
+.content-wg-category-checkbox {
+    padding: 0 !important;
+
+}
+
+.widget-category-checkbox .secondary-head {
+    font-size: 16px;
+}
+
+.widget-category-checkbox .rarity-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 2rem 0;
+}
+
+.widget-category-checkbox .rarity-tags span {
+    font-size: 16px;
+    margin: 1rem 0;
+}
+
+.widget-category-checkbox .rarity-tags .tag-BA8AFF {
+    color: #BA8AFF;
+}
+
+.widget-category-checkbox .rarity-tags .tag-FF8AAD {
+    color: #FF8AAD;
+}
+
+.widget-category-checkbox .rarity-tags .tag-8EE3FB {
+    color: #8EE3FB;
+}
+
+.widget-category-checkbox .rarity-tags .tag-BFC4CA {
+    color: #BFC4CA;
+}
+
+.content-wg-category-checkbox .selection {
+    display: flex;
+    align-items: center;
+    margin: 0.75rem 0;
+    opacity: 0.8;
+
+    cursor: pointer;
+}
+
+.content-wg-category-checkbox .selected {
+    opacity: 1;
+}
+
+.content-wg-category-checkbox .selected p {
+    color: #fff;
+}
+
+.content-wg-category-checkbox .selection img {
+    width: 16px;
+    object-fit: contain;
+}
+
+.content-wg-category-checkbox .selection p {
+    font-size: 16px;
+    margin-left: 1rem;
+}
+
+
+/*  */
+
+
+/*  */
+/*  */
+/*  */
+
+/* Styles for the slider component */
+.slider {
+    height: 5px;
+    width: 100%;
+    background-color: #E03E3E;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+
+    margin: 2rem 0;
+}
+
+/* Styles for the slider thumb */
+.slider .thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #E03E3E;
+    cursor: grab;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-top: -5px;
+}
+
+/* Styles for the slider active state */
+.slider .thumb.active {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slider-typo-input {
+    display: flex;
+}
+
+.slider-typo-input input {
+    color: #fff;
 }
