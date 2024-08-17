@@ -1437,6 +1437,8 @@ a:focus {
 
 .header_1.style-white .tf-button {
     background-color: #DEE8E8;
+    font-family: CPMono_v07_Plain;
+
 }
 
 .header_1.style-white .tf-button:hover {
@@ -2096,6 +2098,7 @@ a:focus {
     background-color: #DEE8E8;
     color: #161616;
     cursor: pointer;
+
 }
 
 .section-menu-left .create a.tf-button.active {
@@ -2781,7 +2784,7 @@ body.background-white .tf-mouse-outer {
 
 .widget-category-checkbox .rarity-tags span {
     font-size: 16px;
-    margin: 1rem 0;
+    margin: 1rem 0.5rem;
 }
 
 .widget-category-checkbox .rarity-tags .tag-BA8AFF {
@@ -2868,4 +2871,74 @@ body.background-white .tf-mouse-outer {
 
 .slider-typo-input input {
     color: #fff;
+}
+
+
+/* Customizing the Track */
+
+.trait-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 40px;
+    background: inherit;
+    outline: none;
+
+    margin-top: 1rem;
+}
+
+.trait-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #E03E3E;
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin-top: -0.75rem;
+}
+
+/* Chrome, Safari, and Edge */
+.trait-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #E03E3E;
+    border-radius: 5px;
+}
+
+/* Firefox */
+.trait-slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #E03E3E;
+    border-radius: 5px;
+}
+
+.trait-slider-values {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    /* padding: 0 0.75rem; */
+    padding-right: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.diamonds {
+    background-color: #8EE3FB;
+
+    padding: 0.75rem 1.25rem;
+
+    border-radius: 15px;
+
+    color: #000;
+}
+
+.diamonds span {
+    font-family: CPMono_v07_Bold;
+    font-size: 16px;
+    margin-left: 1rem;
 }

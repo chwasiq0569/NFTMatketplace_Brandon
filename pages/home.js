@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import Countdown from "@/components/elements/Countdown";
 import MultiRangeSlider from "../components/elements/CustomComponents/CustomRangeController/MultiRangeSlider"
+import SingleRangeSlider from "../components/elements/CustomComponents/CustomRangeController/SingleRangeSlider"
 
 const currentTime = new Date()
 
@@ -85,6 +86,13 @@ export default function Home() {
         slidesToShow: 4,
         slidesToScroll: 1,
     };
+
+
+    const [traitSlider, setTraitSlider] = React.useState(0);
+
+    const onTraitSlide = (event) => {
+        setTraitSlider(event.target.value);
+    }
 
     return (
         <>
@@ -197,6 +205,22 @@ export default function Home() {
                                     <span className="tag-8EE3FB">UNCOMMON (50%)</span>
                                     <span className="tag-BFC4CA">COMMON (100%)</span>
                                 </div>
+
+                                <p className="secondary-head">TRAIT COUNT</p>
+                                {/* <SingleRangeSlider min={0} max={10} /> */}
+                                <input type="range" min="0" max="9" onChange={onTraitSlide} value={traitSlider} className="trait-slider" id="myRange" />
+                                <div className="trait-slider-values">
+                                    <span>0</span>
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span>4</span>
+                                    <span>5</span>
+                                    <span>6</span>
+                                    <span>7</span>
+                                    <span>8</span>
+                                    <span>9</span>
+                                </div>
                             </div>
                             <div className="widget-category-checkbox style-1 mb-30">
                                 <h5 className="active">Collection</h5>
@@ -233,126 +257,33 @@ export default function Home() {
                                     </form>
                                 </div>
                             </div>
-                            <div className="widget-category-checkbox style-1 mb-30">
-                                <h5 className="active">Filter by price</h5>
-                                <div className="content-wg-category-checkbox">
-                                    <form action="#">
-                                        <label>$0 - $100
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>$100 - $200
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>$200 - $300
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>$300 - $400
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>$400 - $500
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>$500 - $600
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>Over $600
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                    </form>
-                                </div>
-                            </div>
-                            <div className="widget-category-checkbox style-1 mb-30">
-                                <h5 className="active">Chains</h5>
-                                <div className="content-wg-category-checkbox">
-                                    <form action="#">
-                                        <label>Bitcoin
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>Ethereum
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>Cardano
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>Solana
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label>Litecoin
-                                            <input type="checkbox" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                    </form>
-                                </div>
-                            </div>
-                            <div className="widget-category-checkbox style-1">
-                                <h5 className="active">Ratings</h5>
-                                <div className="content-wg-category-checkbox">
-                                    <form action="#">
-                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" />
-                                            <input type="radio" name="rating" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /> &amp; Up
-                                            <input type="radio" name="rating" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
-                                            <input type="radio" name="rating" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label><i className="icon-star active" /><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
-                                            <input type="radio" name="rating" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                        <label><i className="icon-star active" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /> &amp; Up
-                                            <input type="radio" name="rating" />
-                                            <span className="btn-checkbox" />
-                                        </label><br />
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                         <div className="col-md-9">
                             <div className="row">
                                 <div data-wow-delay="0s" className="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
                                     <div className="tf-card-box style-4">
-                                        <div className="author flex items-center">
-                                            <div className="avatar">
-                                                <img src="assets/images/avatar/avatar-01.png" alt="Image" />
-                                            </div>
-                                            <div className="info">
-                                                <span>Created by:</span>
-                                                <h6><Link href="/author-2">Marvin McKinney</Link> </h6>
-                                            </div>
-                                        </div>
                                         <div className="card-media">
                                             <Link href="#">
                                                 <img src="assets/images/collection/1.png" alt="" />
                                             </Link>
-                                            <span className="wishlist-button icon-heart" />
-                                            <div className="featured-countdown">
-                                                <Countdown endDateTime={currentTime.setDate(currentTime.getDate() + 2)} />
+                                        </div>
+                                        <div className="flex items-center justify-between py-2">
+                                            <div className="flex items-center justify-between diamonds">
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.46329 0L0 2.38729C2.1667 5.88728 4.3334 9.38729 6.5001 12.8873L13 2.38729L10.5369 0H2.46329Z" fill="black" />
+                                                </svg>
+                                                <span>2596</span>
+                                            </div>
+                                            <div>
+                                                <h6 className="price gem">#424</h6>
                                             </div>
                                         </div>
-                                        <h5 className="name"><Link href="#">Dayco serpentine belt</Link></h5>
                                         <div className="meta-info flex items-center justify-between">
                                             <div>
-                                                <span className="text-bid">Current Bid</span>
-                                                <h6 className="price gem"><i className="icon-gem" />0,34</h6>
+                                                <h6 className="price gem"><img src='/assets/icon/nftcurrency.png' />0,34</h6>
                                             </div>
                                             <div className="button-place-bid">
-                                                <a onClick={handleBidModal} href="#" className="tf-button"><span>Place Bid</span></a>
+                                                <a onClick={handleBidModal} href="#" className="tf-button"><span> BUY</span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -721,7 +652,7 @@ export default function Home() {
                 <TopCollections2 />
                 <Action2 />
                 <DiscoverItem2 /> */}
-            </Layout>
+            </Layout >
         </>
     )
 }
